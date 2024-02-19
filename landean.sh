@@ -3,15 +3,6 @@ green='\e[0;32m'
 yell='\e[1;33m'
 tyblue='\e[1;36m'
 NC='\e[0m'
-localip=$(hostname -I | cut -d\  -f1)
-hst=( `hostname` )
-dart=$(cat /etc/hosts | grep -w `hostname` | awk '{print $2}')
-if [[ "$hst" != "$dart" ]]; then
-echo "$localip $(hostname)" >> /etc/hosts
-fi
-if [ -f "/root/log-install.txt" ]; then
-rm -fr /root/log-install.txt
-fi
 mkdir -p /etc/xray
 mkdir -p /etc/v2ray
 touch /etc/xray/domain
@@ -25,7 +16,7 @@ apt install git curl -y >/dev/null 2>&1
 apt install python -y >/dev/null 2>&1
 sudo apt install vnstat
 sudo apt insta squid
-wget -q -O https://raw.githubusercontent.com/messiey/rocky/master/tools.sh && chmod +x tools.sh && ./tools.sh
+wget -q -O https://raw.githubusercontent.com/landeanv/vip/master/tools.sh && chmod +x tools.sh && ./tools.sh
 rm tools.sh
 clear
 clear
